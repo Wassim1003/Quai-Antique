@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation</title>
+  <link rel="stylesheet" href="stylees3.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous">
+</head>
+<body style="background-color: #ebebeb;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="restaurant.html"><img class="logo" src="logo.png" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="restaurant.html">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="carte.html">menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="reservation.html">Réservation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="restaurant.html #contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="account.html">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle account" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section id="reservation-form" class="py-5 text-center">
+      <div class="container">
+        <h2>Formulaire de réservation</h2>
+        <form action="reservation.php" method="POST">
+          <div class="form-group">
+            <label for="name">Nom complet :</label>
+            <input type="text" id="nom" name="nom">
+          </div>
+          <div class="form-group">
+            <label for="tel">Numéro de téléphone :</label>
+            <input type="tel" id="tel" name="tel">
+          </div>
+          <div class="form-group">
+            <label for="nombre-couverts">Nombre de couverts :</label>
+            <input type="number" id="nombre-couverts" name="nombre_couverts">
+          </div>
+          <div class="form-group">
+            <label for="date">Date :</label>
+            <input type="date" id="date" name="date" required onchange="updateHeurePrevue()">
+          </div>
+          <div class="form-group">
+            <label for="heure">Heure prévue :</label>
+            <select id="heure" name="heure" required></select>
+          </div>
+          <div class="form-group">
+            <label for="allergies">Avez vous des allergies ? (facultatif) :</label>
+            <textarea id="allergies" name="allergies" rows="3"></textarea>
+          </div>
+          <button type="submit" style="background-color: #ff8e4d;" class="btn btn-reservation">Envoyer</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-dark text-white text-center py-3">
+    <p>2023 Restaurant. Tous droits réservés.</p>
+  </footer>
+  <script>
+    function updateHeurePrevue() {
+      var dateInput = document.getElementById("date");
+      var heureSelect = document.getElementById("heure");
+      heureSelect.innerHTML = "";
+      var selectedDate = new Date(dateInput.value);
+      var jourSemaine = selectedDate.getDay();
+      var heuresOuverture = [
+        { jour: 0, heures: ["11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "18:00", "18:15", "18:30", "18:45", "19:00", "20:15", "20:30", "20:45", "21:00", "21:15", "21:30", "21:45", "22:00"] },   // Dimanche
+        { jour: 1, heures: ["Indisponible"] },   // Lundi
+        { jour: 2, heures: ["18:00", "18:15", "18:30", "18:45", "19:00", "20:15", "20:30", "20:45", "21:00"] },   // Mardi
+        { jour: 3, heures: ["18:00", "18:15", "18:30", "18:45", "19:00", "20:15", "20:30", "20:45", "21:00"] },   // Mercredi
+        { jour: 4, heures: ["18:00", "18:15", "18:30", "18:45", "19:00", "20:15", "20:30", "20:45", "21:00"] },   // Jeudi
+        { jour: 5, heures: ["18:00", "18:15", "18:30", "18:45", "19:00", "20:15", "20:30", "20:45", "21:00"] },   // Vendredi
+        { jour: 6, heures: ["11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "18:00", "18:15", "18:30", "18:45", "19:00", "20:15", "20:30", "20:45", "21:00", "21:15", "21:30", "21:45", "22:00"] }    // Samedi
+      ];
+
+      var heures = heuresOuverture.find(function (jour) {
+        return jour.jour === jourSemaine;
+      }).heures;
+
+      heures.forEach(function (heure) {
+        var option = document.createElement("option");
+        option.value = heure;
+        option.text = heure;
+        heureSelect.appendChild(option);
+      });
+    }
+  </script>
+  <script>
+var placesDisponibles = 50;
+var form = document.getElementById("reservation-form");
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  var nomInput = document.getElementById("nom");
+  var nombreCouvertsInput = document.getElementById("nombre-couverts");
+
+  if (nomInput.value.trim() === "") {
+    alert("Veuillez entrer votre nom complet.");
+    return;
+  }
+
+  var nombreCouverts = parseInt(nombreCouvertsInput.value);
+  if (isNaN(nombreCouverts) || nombreCouverts <= 0) {
+    alert("Veuillez entrer un nombre valide de couverts.");
+    return;
+  }
+
+  if (nombreCouverts > placesDisponibles) {
+    alert("Désolé, il n'y a plus assez de places disponibles ce jour.");
+    return;
+  }
+
+  form.submit();
+
+  placesDisponibles -= nombreCouverts;
+  updatePlacesDisponibles();
+});
+
+var placesDisponiblesElement = document.getElementById("places-disponibles");
+
+function updatePlacesDisponibles() {
+  placesDisponiblesElement.textContent = placesDisponibles;
+}
+
+updatePlacesDisponibles();
+  </script>
+  <script>
+    window.onload = function() {
+      document.getElementById("nom").value = compteClient.nom;
+      document.getElementById("tel").value = compteClient.tel;
+      document.getElementById("allergies").value = compteClient.allergies;
+      updateHeurePrevue();
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

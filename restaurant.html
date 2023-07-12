@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quai Antique</title>
+  <link rel="stylesheet" type="text/css" href="stylees.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="code.php">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="restaurant.html"><img class="logo" src="logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#accueil">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#reservation">Réservation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="account.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle account" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section id="accueil" class="py-5 text-center">
+    <div class="container">
+      <h2>Bienvenue au Quai Antique</h2>
+      <p>Découvrez une cuisine raffinée dans une ambiance chaleureuse.</p>
+    </div>
+  </section>
+  <section id="menu" class="py-5">
+    <div class="container">
+      <h2>Notre Menu à La Une</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <h3>Entrée</h3>
+          <div class="menu-item">
+            <img src="https://th.bing.com/th?id=OVP.A8sDed9wMu3LySQ77PvOIgHgFo&w=197&h=110&c=7&rs=1&qlt=90&o=6&pid=1.7" alt="Entrée">
+            <p>Salade Méditerranéenne</p>
+            <p>Une délicieuse salade composée de légumes frais, d'olives, de feta et d'une vinaigrette aux herbes.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h3>Plat principal</h3>
+          <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.AOM_toFtJKUJjPCtWR1r6wAAAA?w=274&h=148&c=7&r=0&o=5&pid=1.7" alt="Plat principal">
+            <p>Filet Mignon au Poivre</p>
+            <p>Un succulent filet mignon cuit à la perfection, accompagné d'une sauce au poivre et de légumes sautés.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h3>Dessert</h3>
+          <div class="menu-item">
+            <img src="https://th.bing.com/th/id/OIP.yjaqDHplbYxX8-c_DMRTggHaE8?w=280&h=187&c=7&r=0&o=5&pid=1.7" alt="Dessert">
+            <p>Tarte aux Fruits Rouges</p>
+            <p>Une délicieuse tarte aux fruits rouges garnie de fraises, de framboises et de myrtilles, servie avec une boule de glace à la vanille.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <a href="carte.html" style="background-color: #ff8e4d;" class="btn btn-menu">Voir la carte complète</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="reservation" class="py-5 text-center">
+    <div class="container">
+      <h2>Réservez une table</h2>
+      <p>Contactez-nous pour réserver votre table et profiter d'une expérience culinaire inoubliable.</p>
+      <div class="opening-hours">
+        <h3>Horaires d'ouverture</h3>
+        <ul>
+          <li><span class="day">Lundi :</span> Fermé</li>
+          <li><span class="day">Mardi - Vendredi :</span> 18h00 - 22h00</li>
+          <li><span class="day">Samedi - Dimanche :</span> 11h30 - 14h30, 18h00 - 23h00</li>
+        </ul>
+      </div>
+      <a href="reservation.html" style="background-color: #ff8e4d;" class="btn btn-reservation">Réserver maintenant</a>
+    </div>
+  </section>  
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2>Contactez-nous</h2>
+      <p>Vous avez des questions ou des commentaires ? N'hésitez pas à nous contacter.</p>
+      <p>Téléphone : 123-456-789</p>
+      <p>Email : contact@quai-antique.com</p>
+    </div>
+  </section>
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2023 Quai Antique. Tous droits réservés.</p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const menuLink = document.querySelector('a[href="#menu"]');
+    const reservationLink = document.querySelector('a[href="#reservation"]');
+    const contactLink = document.querySelector('a[href="#contact"]');
+  
+    menuLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    const target = document.querySelector(menuLink.getAttribute('href'));
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+    
+    reservationLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      const target = document.querySelector(reservationLink.getAttribute('href'));
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  
+    contactLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      const target = document.querySelector(contactLink.getAttribute('href'));
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  });
+  </script>
+  <script src="reactt.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
